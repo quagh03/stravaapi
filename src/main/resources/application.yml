@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: stravaapi
+  main:
+    allow-bean-definition-overriding: true
+  security:
+    oauth2:
+      client:
+        registration:
+          strava:
+            client-id: 113829
+            client-secret:
+            scope: activity:read_all
+            token-name: access_token
+            authentication-scheme: query
+            client-authentiaction-scheme: form
+            client-authentication-method: post
+            authorization-grant-type: authorization_code
+            client-name: strava
+            redirect-uri: "{baseUrl}/login/oauth2/strava"
+        provider:
+          strava:
+            token-uri: https://www.strava.com/oauth/token
+            authorization-uri: htttps://www.strava.com/oauth/authorize
+            user-info-uri: https://www.strava.com/api/v3/athete
+            user-name-attribute: id
+server:
+  error:
+    whitelabel:
+      enabled: false
